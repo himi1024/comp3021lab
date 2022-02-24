@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class NoteBook {
 	
-	private ArrayList<Folder> folders = new ArrayList<Folder>();;
+	private ArrayList<Folder> folders;
 	
 	public NoteBook() {
-		
+		folders = new ArrayList<Folder>();
 	}
 	
 	public boolean createTextNote(String folderName, String title) {
