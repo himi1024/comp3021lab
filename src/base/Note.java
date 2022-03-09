@@ -2,16 +2,17 @@ package base;
 
 import java.util.Date;
 
-public class Note {
+public class Note implements Comparable<Note>{
+	/** parameter in superclass*/
 	private Date date;
 	private String title;
-	
-	public Note(String title) {
+
+	public Note(String title){
 		this.title = title;
-		date = new Date(System.currentTimeMillis());
+		this.date = new Date(System.currentTimeMillis());
 	}
-	
-	public String getTitle() {
+
+	public String getTitle(){
 		return title;
 	}
 
@@ -32,6 +33,18 @@ public class Note {
 			return false;
 		return true;
 	}
-	
-	
+
+
+	public int compareTo(Note o){
+		if(this.date.compareTo(o.date) > 0)
+			return -1;
+		else if(this.date.compareTo(o.date) < 0)
+			return 1;
+		else
+			return 0;
+	}
+
+	public String toString(){
+		return date.toString() + "\t" + title;
+	}
 }
