@@ -100,8 +100,8 @@ public class Folder implements Comparable<Folder>{
 							if(word.compareTo(wordlist.get(wordlist.size()-1)) == 0) 
 								note.add(temp);		
 						}
-					else
-						break;
+						else
+							break;
 
 					}
 					else 
