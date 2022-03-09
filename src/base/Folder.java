@@ -88,6 +88,7 @@ public class Folder implements Comparable<Folder>{
 		//Searching
 		for (Note temp : notes)
 		{		
+			boolean existWord = true;
 			for(String word:wordlist) {
 				//OR
 				if(word.contains(" ")){
@@ -96,9 +97,11 @@ public class Folder implements Comparable<Folder>{
 					if(temp instanceof TextNote) {
 						if(temp.getTitle().toUpperCase().contains(word1) == true || temp.getTitle().toUpperCase().contains(word2) == true 
 								|| ((TextNote)temp).content.toUpperCase().contains(word1) == true || ((TextNote)temp).content.toUpperCase().contains(word2) == true){
-							if(word.compareTo(wordlist.get(wordlist.size()-1)) == 0)
-								note.add(temp);
+							if(word.compareTo(wordlist.get(wordlist.size()-1)) == 0) 
+								note.add(temp);		
 						}
+					else
+						break;
 
 					}
 					else 
@@ -106,16 +109,20 @@ public class Folder implements Comparable<Folder>{
 							if(word.compareTo(wordlist.get(wordlist.size()-1)) == 0)
 								note.add(temp);
 						}
+						else
+							break;
 
 				}
 				
 				//AND
 				else {
 						if(temp instanceof TextNote) {
-							if(temp.getTitle().toUpperCase().contains(word) == true || ((TextNote)temp).content.toUpperCase().contains(word) == true){
+							if(temp.getTitle().toUpperCase( ).contains(word) == true || ((TextNote)temp).content.toUpperCase().contains(word) == true){
 								if(word.compareTo(wordlist.get(wordlist.size()-1)) == 0)
 									note.add(temp);
 							}
+							else
+								break;
 
 						}
 						else {
@@ -123,6 +130,8 @@ public class Folder implements Comparable<Folder>{
 								if(word.compareTo(wordlist.get(wordlist.size()-1)) == 0)
 									note.add(temp);
 							}
+							else
+								break;
 						}
 				}
 			}
