@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Folder implements Comparable<Folder>{
+public class Folder implements Comparable<Folder>, java.io.Serializable{
 	private ArrayList<Note> notes;
 	private String name;
 
@@ -70,7 +70,7 @@ public class Folder implements Comparable<Folder>{
 		
 		int i = 0;
 		
-		//All keyword criteria
+		//All keyword criteriau
 		while (i < keyToFind.length)
 		{
 			if (keyToFind[i+1].equals("OR"))
@@ -88,7 +88,6 @@ public class Folder implements Comparable<Folder>{
 		//Searching
 		for (Note temp : notes)
 		{		
-			boolean existWord = true;
 			for(String word:wordlist) {
 				//OR
 				if(word.contains(" ")){
