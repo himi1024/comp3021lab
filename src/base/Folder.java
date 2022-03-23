@@ -142,6 +142,7 @@ public class Folder implements Comparable<Folder>, java.io.Serializable{
 		return note;
 	}
 
+
 	public String findFrequentWords() {
 		String[] a = new String[3];
 		Map<String,Integer> map = new HashMap<>();
@@ -184,3 +185,5 @@ public class Folder implements Comparable<Folder>, java.io.Serializable{
 		return Arrays.toString(a);
 	}
 }
+}
+
