@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 
 public class TextNote extends Note {
-	String content;
+	public String content;
 
 	public TextNote(String title){
 		super(title);

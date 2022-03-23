@@ -1,8 +1,12 @@
 package base;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class Folder implements Comparable<Folder>, java.io.Serializable{
 	private ArrayList<Note> notes;
@@ -137,4 +141,49 @@ public class Folder implements Comparable<Folder>, java.io.Serializable{
 		}
 		return note;
 	}
+
+
+	public String findFrequentWords() {
+		String[] a = new String[3];
+		Map<String,Integer> map = new HashMap<>();
+		for(Note n : this.getNotes()) {
+			if(n instanceof TextNote) {
+				if(((TextNote) n).content == null) {
+					continue;
+				}
+				else {			
+				
+					String splitedContent = ((TextNote) n).content.replaceAll("\\pP", " ");
+				
+					splitedContent = splitedContent.toLowerCase();
+					String[] splitedWord = splitedContent.split(" ");
+				for(String word: splitedWord) {
+					System.out.println("Word =" + word);
+					if(((TextNote) n).content == " ")
+						continue;
+					else if(map.containsKey(word) == false) {
+						map.put(word, 1);
+					}
+					else { // existing word
+						map.put(word, map.get(word)+1);
+					}
+				}
+			}
+			}
+		}
+		
+		List<Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+		list.sort(Entry.comparingByValue());
+		
+		for(int i = 0; i < 3;i++) {
+			if(list.size() <= i) {
+				continue;
+			}
+			else
+				a[i] = "(" + list.get(list.size()-1-i).getKey() + ","+ list.get(list.size()-1-i).getValue() +")";
+		}
+		return Arrays.toString(a);
+	}
 }
+}
+
