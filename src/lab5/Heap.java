@@ -47,7 +47,7 @@ public class Heap<T extends Comparable<T>> {
     		heapifyDown();
     		return temp;
     	}
-        //return null; // replace this line with implementation
+        //return null; //replace this line with implementation
     }
 
     private void heapifyDown() {
