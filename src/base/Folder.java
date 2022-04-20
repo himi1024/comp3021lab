@@ -159,10 +159,10 @@ public class Folder implements Comparable<Folder>,Serializable{
 				if (notes.get(i).getTitle().equals(currentNote)) {
 					notes.remove(i);
 					return true;
+
+
 				}
 			}
 		return false;
 	}
-	
-
 }
