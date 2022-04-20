@@ -64,4 +64,14 @@ public class TextNote extends Note {
 			e.printStackTrace();
 		}
 	}
+
+	public void setContent(String text) {
+		// TODO Auto-generated method stub
+		this.content = text;
+	}
+
+	public String getContent() {
+		// TODO Auto-generated method stub
+		return content;
+	}
 }
