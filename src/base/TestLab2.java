@@ -37,8 +37,5 @@ public class TestLab2 {
 			if (b) numSucceed++;
 			
 			System.out.println("Successfully created " + numSucceed + " notes");
-			for(Folder f : nb.getFolders()){
-				System.out.println(f.findFrequentWords());
-			}
 		}
 	}

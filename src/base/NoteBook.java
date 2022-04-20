@@ -111,5 +111,17 @@ public class NoteBook implements Serializable {
 			e.printStackTrace();
 			}
 	}
-	
+
+	public void addFolder(String name) {
+		// TODO Auto-generated method stub
+		Folder folder = null;
+		for (Folder _folder : folders) {
+			if (_folder.getName().equals(name)) {
+				folder = _folder; break;
+			}
+		}
+		if (folder==null) {
+			folder = new Folder(name); folders.add(folder);
+		}
+	}
 }
